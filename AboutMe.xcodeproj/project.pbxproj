@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAA566DE26E579FE00B17809 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA566DD26E579FE00B17809 /* DetailView.swift */; };
+		AAA566E026E57B0100B17809 /* ProfileImageWithNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA566DF26E57B0100B17809 /* ProfileImageWithNameView.swift */; };
 		F3BEC09526B760DA00DAC02A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEC09426B760DA00DAC02A /* AppDelegate.swift */; };
 		F3BEC09726B760DA00DAC02A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEC09626B760DA00DAC02A /* SceneDelegate.swift */; };
 		F3BEC09926B760DA00DAC02A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEC09826B760DA00DAC02A /* LoginViewController.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AAA566DD26E579FE00B17809 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		AAA566DF26E57B0100B17809 /* ProfileImageWithNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageWithNameView.swift; sourceTree = "<group>"; };
 		F3BEC09126B760DA00DAC02A /* AboutMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BEC09426B760DA00DAC02A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BEC09626B760DA00DAC02A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,8 @@
 		AAA566DA26E2EF3B00B17809 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AAA566DD26E579FE00B17809 /* DetailView.swift */,
+				AAA566DF26E57B0100B17809 /* ProfileImageWithNameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BEC09926B760DA00DAC02A /* LoginViewController.swift in Sources */,
+				AAA566DE26E579FE00B17809 /* DetailView.swift in Sources */,
+				AAA566E026E57B0100B17809 /* ProfileImageWithNameView.swift in Sources */,
 				F3BEC09526B760DA00DAC02A /* AppDelegate.swift in Sources */,
 				F3BEC09726B760DA00DAC02A /* SceneDelegate.swift in Sources */,
 			);
