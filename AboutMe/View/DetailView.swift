@@ -57,6 +57,37 @@ class DetailView: UIView {
         return imageWithLabelStack
     }()
     
+    let favoritesView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "CreamColor")
+        return view
+    }()
+    
+    let favoriteThingsLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        label.text = "❤️ Coffee, spending time with family, reading"
+        return label
+    }()
+    
+    let favoriteFoodLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        label.text = "🍴 Pad Thai"
+        return label
+    }()
+    
+    let favoriteShowLabel: UILabel = {
+        let label = UILabel()
+         label.translatesAutoresizingMaskIntoConstraints = false
+         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+         label.text = "📺 The Office"
+         return label
+    }()
+    
     init() {
         super.init(frame: .zero)
         setUpUI()
@@ -69,6 +100,7 @@ class DetailView: UIView {
     private func setUpUI() {
         setUpProfileView()
         setUpSocialsView()
+        setUpFavoritesView()
     }
     
     private func setUpProfileView() {
@@ -143,5 +175,51 @@ class DetailView: UIView {
             linkedInView.bottomAnchor.constraint(equalTo: socialsView.bottomAnchor, constant: -4)
         ])
     }
+    
+    private func setUpFavoritesView() {
+        addSubview(favoritesView)
+        
+        NSLayoutConstraint.activate([
+            favoritesView.topAnchor.constraint(equalTo: socialsView.bottomAnchor, constant: 30),
+            favoritesView.leadingAnchor.constraint(equalTo: socialsView.leadingAnchor),
+            favoritesView.heightAnchor.constraint(equalToConstant: 80),
+            favoritesView.trailingAnchor.constraint(equalTo: socialsView.trailingAnchor)
+        ])
+        
+        addFavoriteThingsLabel()
+        addFavoriteFoodLabel()
+        addFavoriteShowLabel()
+    }
+    
+    private func addFavoriteThingsLabel() {
+        favoritesView.addSubview(favoriteThingsLabel)
+        
+        NSLayoutConstraint.activate([
+            favoriteThingsLabel.topAnchor.constraint(equalTo: favoritesView.topAnchor, constant: 15),
+            favoriteThingsLabel.leadingAnchor.constraint(equalTo: favoritesView.leadingAnchor, constant: 8),
+            
+        ])
+    }
+    
+    private func addFavoriteFoodLabel() {
+        favoritesView.addSubview(favoriteFoodLabel)
+        
+        NSLayoutConstraint.activate([
+            favoriteFoodLabel.topAnchor.constraint(equalTo: favoriteThingsLabel.bottomAnchor, constant: 20),
+            favoriteFoodLabel.leadingAnchor.constraint(equalTo: favoriteThingsLabel.leadingAnchor),
+            
+        ])
+    }
+    
+    private func addFavoriteShowLabel() {
+        favoritesView.addSubview(favoriteShowLabel)
+        
+        NSLayoutConstraint.activate([
+            favoriteShowLabel.topAnchor.constraint(equalTo: favoriteFoodLabel.topAnchor),
+            favoriteShowLabel.leadingAnchor.constraint(equalTo: favoriteFoodLabel.trailingAnchor, constant: 20),
+            favoriteShowLabel.trailingAnchor.constraint(equalTo: favoritesView.trailingAnchor, constant: -10)
+        ])
+    }
+    
     
 }
