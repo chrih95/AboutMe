@@ -88,6 +88,33 @@ class DetailView: UIView {
          return label
     }()
     
+    let iosInterestView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "CreamColor")
+        return view
+    }()
+    
+    let iosInterestHeaderLabel: UILabel = {
+        let label = UILabel()
+         label.translatesAutoresizingMaskIntoConstraints = false
+         label.font = UIFont.systemFont(ofSize: 21, weight: .bold)
+         label.text = "I like iOS Development because..."
+         return label
+    }()
+    
+    let iosInterestDescriptionLabel: UILabel = {
+        let label = UILabel()
+         label.translatesAutoresizingMaskIntoConstraints = false
+         label.lineBreakMode = .byWordWrapping
+         label.numberOfLines = 8
+         label.font = UIFont.systemFont(ofSize: 16)
+         label.text = """
+        I love development but I also love creating experiences that users will love. It's very exciting to me that I can create an experience that could be enjoyed by tons of people.
+        """
+         return label
+    }()
+    
     init() {
         super.init(frame: .zero)
         setUpUI()
@@ -101,6 +128,7 @@ class DetailView: UIView {
         setUpProfileView()
         setUpSocialsView()
         setUpFavoritesView()
+        setUpIosInterestView()
     }
     
     private func setUpProfileView() {
@@ -125,7 +153,7 @@ class DetailView: UIView {
         addSubview(socialsView)
         
         NSLayoutConstraint.activate([
-            socialsView.topAnchor.constraint(equalTo: profileImageWithNameView.bottomAnchor, constant: 30),
+            socialsView.topAnchor.constraint(equalTo: profileImageWithNameView.bottomAnchor, constant: 20),
             socialsView.leadingAnchor.constraint(equalTo: profileImageWithNameView.leadingAnchor),
             socialsView.heightAnchor.constraint(equalToConstant: 125),
             socialsView.trailingAnchor.constraint(equalTo: profileImageWithNameView.trailingAnchor)
@@ -180,7 +208,7 @@ class DetailView: UIView {
         addSubview(favoritesView)
         
         NSLayoutConstraint.activate([
-            favoritesView.topAnchor.constraint(equalTo: socialsView.bottomAnchor, constant: 30),
+            favoritesView.topAnchor.constraint(equalTo: socialsView.bottomAnchor, constant: 20),
             favoritesView.leadingAnchor.constraint(equalTo: socialsView.leadingAnchor),
             favoritesView.heightAnchor.constraint(equalToConstant: 80),
             favoritesView.trailingAnchor.constraint(equalTo: socialsView.trailingAnchor)
@@ -218,6 +246,41 @@ class DetailView: UIView {
             favoriteShowLabel.topAnchor.constraint(equalTo: favoriteFoodLabel.topAnchor),
             favoriteShowLabel.leadingAnchor.constraint(equalTo: favoriteFoodLabel.trailingAnchor, constant: 20),
             favoriteShowLabel.trailingAnchor.constraint(equalTo: favoritesView.trailingAnchor, constant: -10)
+        ])
+    }
+    
+    private func setUpIosInterestView() {
+        addSubview(iosInterestView)
+        
+        NSLayoutConstraint.activate([
+            iosInterestView.topAnchor.constraint(equalTo: favoritesView.bottomAnchor, constant: 20),
+            iosInterestView.leadingAnchor.constraint(equalTo: favoritesView.leadingAnchor),
+            iosInterestView.heightAnchor.constraint(equalToConstant: 130),
+            iosInterestView.trailingAnchor.constraint(equalTo: favoritesView.trailingAnchor)
+        ])
+        
+        addIosInterestHeaderLabel()
+        addIosInterestDescriptionLabel()
+    }
+    
+    private func addIosInterestHeaderLabel() {
+        iosInterestView.addSubview(iosInterestHeaderLabel)
+        
+        NSLayoutConstraint.activate([
+            iosInterestHeaderLabel.topAnchor.constraint(equalTo: iosInterestView.topAnchor, constant: 10),
+            iosInterestHeaderLabel.leadingAnchor.constraint(equalTo: iosInterestView.leadingAnchor, constant: 10),
+            iosInterestHeaderLabel.trailingAnchor.constraint(equalTo: iosInterestView.trailingAnchor, constant: -10)
+        ])
+    }
+    
+    private func addIosInterestDescriptionLabel() {
+        iosInterestView.addSubview(iosInterestDescriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            iosInterestDescriptionLabel.topAnchor.constraint(equalTo: iosInterestHeaderLabel.bottomAnchor, constant: 5),
+            iosInterestDescriptionLabel.leadingAnchor.constraint(equalTo: iosInterestView.leadingAnchor, constant: 10),
+            iosInterestDescriptionLabel.trailingAnchor.constraint(equalTo: iosInterestView.trailingAnchor, constant: -10),
+            iosInterestDescriptionLabel.bottomAnchor.constraint(equalTo: iosInterestView.bottomAnchor, constant: -10)
         ])
     }
     
