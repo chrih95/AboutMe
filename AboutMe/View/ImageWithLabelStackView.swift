@@ -13,7 +13,7 @@ class ImageWithLabelStack: UIStackView {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image?.withRenderingMode(.alwaysTemplate)
-        image.tintColor = UIColor(named: "NavyColor")
+        image.tintColor = UIColor(named: "MaroonColor")
         image.contentMode = .scaleAspectFit
         return image
     }()

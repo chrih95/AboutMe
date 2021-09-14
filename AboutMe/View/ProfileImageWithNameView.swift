@@ -53,7 +53,7 @@ class ProfileImageWithNameView: UIView {
     // MARK: - UI Setup
     
     private func setUpUI() {
-        backgroundColor = UIColor(named: "NavyColor")
+        backgroundColor = UIColor(named: "MaroonColor")
         
         setUpImageView()
         setUpNameView()

@@ -10,6 +10,8 @@ import UIKit
 
 class DetailView: UIView {
     
+    var buttonAction: (() -> Void)?
+    
     let profileImageWithNameView: ProfileImageWithNameView = {
         let profileImageWithNameView = ProfileImageWithNameView()
         profileImageWithNameView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +45,7 @@ class DetailView: UIView {
         imageWithLabelStack.translatesAutoresizingMaskIntoConstraints = false
         imageWithLabelStack.imageView.image = UIImage(named: "twitter")
         imageWithLabelStack.imageView.image = imageWithLabelStack.imageView.image?.withRenderingMode(.alwaysTemplate)
-        imageWithLabelStack.imageView.tintColor = UIColor(named: "NavyColor")
+        imageWithLabelStack.imageView.tintColor = UIColor(named: "MaroonColor")
         return imageWithLabelStack
     }()
     
@@ -52,7 +54,7 @@ class DetailView: UIView {
         imageWithLabelStack.translatesAutoresizingMaskIntoConstraints = false
         imageWithLabelStack.imageView.image = UIImage(named: "linkedIn")
         imageWithLabelStack.imageView.image = imageWithLabelStack.imageView.image?.withRenderingMode(.alwaysTemplate)
-        imageWithLabelStack.imageView.tintColor = UIColor(named: "NavyColor")
+        imageWithLabelStack.imageView.tintColor = UIColor(named: "MaroonColor")
         imageWithLabelStack.textLabel.text = "linkedin.com/in/christianhawkes"
         return imageWithLabelStack
     }()
@@ -115,6 +117,16 @@ class DetailView: UIView {
          return label
     }()
     
+    let sayHiButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: "OrangeColor")
+        button.setTitle("Say Hi 👋", for: .normal)
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(sayHiButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     init() {
         super.init(frame: .zero)
         setUpUI()
@@ -129,6 +141,7 @@ class DetailView: UIView {
         setUpSocialsView()
         setUpFavoritesView()
         setUpIosInterestView()
+        setUpSayHiButton()
     }
     
     private func setUpProfileView() {
@@ -283,6 +296,21 @@ class DetailView: UIView {
             iosInterestDescriptionLabel.bottomAnchor.constraint(equalTo: iosInterestView.bottomAnchor, constant: -10)
         ])
     }
+    
+    private func setUpSayHiButton() {
+        addSubview(sayHiButton)
+        
+        NSLayoutConstraint.activate([
+            sayHiButton.topAnchor.constraint(equalTo: iosInterestView.bottomAnchor, constant: 20),
+            sayHiButton.leadingAnchor.constraint(equalTo: iosInterestView.leadingAnchor, constant: 50),
+            sayHiButton.heightAnchor.constraint(equalToConstant: 50),
+            sayHiButton.trailingAnchor.constraint(equalTo: iosInterestView.trailingAnchor, constant: -50)
+        ])
+    }
+    
+    @objc func sayHiButtonPressed() {
+            buttonAction?()
+        }
     
     
 }
