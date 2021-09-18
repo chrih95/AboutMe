@@ -127,8 +127,9 @@ class DetailView: UIView {
         return button
     }()
     
-    init() {
-        super.init(frame: .zero)
+    init(buttonAction: @escaping () -> Void, frame: CGRect = .zero) {
+        self.buttonAction = buttonAction
+        super.init(frame: frame)
         setUpUI()
     }
     
